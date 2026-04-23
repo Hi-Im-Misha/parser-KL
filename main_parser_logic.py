@@ -123,7 +123,7 @@ def parse_ads(url_list, min_price=1, min_views=1, max_pages=2, start_page=1):
                 a_tag = item.find("a")
                 if not a_tag:
                     continue
-                card_url = "https://www.kleinanzeigen.de" + a_tag.get("href")
+                card_url = "...." + a_tag.get("href")
                 ad_links.add(card_url)
 
         for card_url in ad_links:
@@ -133,7 +133,7 @@ def parse_ads(url_list, min_price=1, min_views=1, max_pages=2, start_page=1):
                 continue
             ad_id = ad_id_match.group()
 
-            view_url = f"https://www.kleinanzeigen.de/s-vac-inc-get.json?adId={ad_id}"
+            view_url = f"..../s-vac-inc-get.json?adId={ad_id}"
             try:
                 views_resp = requests.get(view_url, headers=HEADERS)
                 card_resp = requests.get(card_url, headers=HEADERS)
